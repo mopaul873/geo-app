@@ -11,6 +11,15 @@ pipeline{
 
             }
         }
+
+        stage('sonar-scan'){
+            steps{
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=mopaul873_geo-app'
+
+            }
+        }
+
+
         stage('upload artifact'){
             steps{
                 sh 'curl -uadmin:AP8gcgmmset5jeYChTJYDN6XmDd -T \
