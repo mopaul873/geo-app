@@ -11,6 +11,11 @@ pipeline{
 
             }
         }
+        stage('upload artifact'){
+            steps{
+                sh 'curl -u<USERNAME>:<PASSWORD> -T \ target/bio*,jar \ "http://54.237.58.39:8081/artifactory/geolocation/geo/bio_${BUILD_ID}.jar"'
+            }
+        }
         
     }
 }
